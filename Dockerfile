@@ -9,7 +9,6 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.lis
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
 nodejs yarn build-essential libpq-dev imagemagick git-all nano
 
-
 # sets path
 ENV INSTALL_PATH /cryptocurrencyexchange
 
@@ -19,8 +18,8 @@ RUN mkdir -p $INSTALL_PATH
 # sets principal directory path
 WORKDIR $INSTALL_PATH
 
-# Seta o path para as Gems
+# sets path for Gems
 ENV BUNDLE_PATH /gems
 
-# Copia nosso código para dentro do container
+# copy for container
 COPY . .
