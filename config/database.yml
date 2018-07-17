@@ -5,16 +5,13 @@ default: &default
   host: postgres
   user: postgres
 
-
 development:
   <<: *default
   database: crypto_exchange_development
 
-
 test:
   <<: *default
   database: crypto_exchange_test
- 
 
 production:
   <<: *default
