@@ -1,4 +1,4 @@
-require "rails_helper"
+git require "rails_helper"
 
 RSpec.describe "Exchanges", type: :request do
     
