@@ -6,7 +6,7 @@ class ExchangeService
   def initialize(source_currency, target_currency, amount)
     @source_currency = source_currency
     @target_currency = target_currency
-    @amount = amount.to_f
+    @amount = amount.gsub('.', '').gsub(',', '.').to_f
   end
  
   def perform
