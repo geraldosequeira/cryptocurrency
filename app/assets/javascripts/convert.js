@@ -4,9 +4,17 @@ jQuery(document).ready(function($) {
         convert(e);
     });
 
+    $("#coin-change").click(function(e){
+        coinChange(e);
+    });
+
+    $("#convert-btc").click(function(e){
+        convertBtc(e);
+    });
+
     $("#amount").setMask("decimal");
   });
-  
+
   function convert(e) {
     e.preventDefault();
       $.ajax({
@@ -29,6 +37,40 @@ jQuery(document).ready(function($) {
             alert(thrownError);
           }
     });
+  }
+
+  function convertBtc(e) {
+    e.preventDefault();
+      $.ajax({
+        url: "/convert-btc",
+        data: {
+            source_currency: $("#source_currency").val(),
+            target_currency: $("#target_currency").val(),
+            amount: $("#amount").val()
+        },
+         type: "GET",
+         dataType: "json",
+         async : false,
+         beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+         },
+         success: function(response){
+            alert("Você pode comprar: "+response.value);
+        },error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+          }
+    });
+  }
+
+  function coinChange(e){
+    var source_currency = $('#source_currency').val();
+    var target_currency = $('#target_currency').val();
+    
+    $('#source_currency').val(target_currency);
+    $('#target_currency').val(source_currency);
+
+    convert(e);
   }
 
   function float2(num) {

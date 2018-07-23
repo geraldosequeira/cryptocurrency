@@ -1,41 +1,52 @@
-<div class='exchange_box col-sm-12'>
+<div class="exchange_box col-sm-12">
     
-    <div class='card'>
-        <div class='card-header text-center'>
+    <div class="card">
+        <div class="card-header text-center">
             Simule sua conversão
         </div>
 
-        <div class='card-block'>
-            <%= form_tag('/convert', method: :get, id: "exchange") do %>
-                <div class='local_currency'>
-                    <div class='form-group'>
-                        <p class='title'>Moeda Local</p>
-                        <%= select_tag 'source_currency', 
-                            options_for_select(currency_list, 'EUR'),
-                            class: 'form-control', 
-                            id: 'source_currency' %>
+        <div class="card-block">
+            <%= form_tag("/convert", method: :get, id: "exchange") do %>
+                <div class="local_currency">
+                    <div class="form-group">
+                        
+                        <p class="title">Moeda Local</p>
+                        <%= select_tag "source_currency", 
+                            options_for_select(currency_list, "EUR"),
+                            class: "form-control", 
+                            id: "source_currency" %>
                     </div>
-                    <div class='form-group'>
-                        <input name='amount' id='amount' class='form-control' 
-                        placeholder='Quantidade ($10)' required>
+                   
+                    <div class="form-group">
+                        <input name="amount" id="amount" class="form-control" 
+                        placeholder="Quantidade ($10)" required>
                     </div>
+                     <i id="coin-change" class="fa fa-undo" style="font-size: 20px;" title="Inverter Moedas" ></i>
                 </div>
                         
-                <div class='destination_currency'>
-                    <div class='form-group'>
-                        <p class='title'>Moeda Pretendida</p>
-                        <%= select_tag 'target_currency', options_for_select(currency_list, 'BRL'), 
-                            class: 'form-control',
-                            id: 'target_currency'%>
+                <div class="destination_currency">
+                    <div class="form-group">
+                        <p class="title">Moeda Pretendida</p>
+                        <%= select_tag "target_currency", options_for_select(currency_list, "BRL"), 
+                            class: "form-control",
+                            id: "target_currency"%>
                     </div>
                     
-                    <div class='form-group'>
-                        <input type='text' id='result' name='result' class='form-control' placeholder='Resultado' readonly>
+                    <div class="form-group">
+                        <input type="text" id="result" name="result" class="form-control" placeholder="Resultado" readonly>
                     </div>
                 </div>
 
                 <div>
-                    <button type='submit' id='convert' class='btn btn-primary btn-exchange col-md-12'>CONVERTER</button>
+                    <button type="submit" id="convert" class="btn btn-primary btn-exchange col-md-12" title="Converter">
+                        <i title="Converter" class="fa fa-exchange"></i>
+                    </button>
+                </div>
+
+                <div class="btn-coin">
+                    <button type="submit" id="convert-btc" class="btn btn-primary btn-exchange col-md-12" title="Converter valor para BTC">
+                        <i class="fa fa-bitcoin" style="font-size: 30px;" ></i>
+                    </button>
                 </div>
             <% end %>
         </div>
