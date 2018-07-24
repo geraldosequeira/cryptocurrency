@@ -1,24 +1,28 @@
-# README
+Cryptocurrency
+ 
+ Easily convert a value from one currency to another and then convert to Bitcoin. Application used to demonstrate features of the Ruby On Rails framework.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Chat Preview](https://s3.amazonaws.com/club-uploads/uploads/form.png)
 
-Things you may want to cover:
+## Demonstrations
 
-* Ruby version
+- Credentials
+- API consumption
+- Deploy Heroku
+- Continuous Integration
+- TDD
+- Docker
+- Yarn
+- AJAX
 
-* System dependencies
+## Features
 
-* Configuration
+- Convert values ​​between currencies
+- Find out how much this value can buy in Bitcoin
+- Change the facilemte currency
 
-* Database creation
 
-* Database initialization
+## Dependencies
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- gem  rest-client
+- gem  webmock
